@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Welcome";    
+}        
+
+<script>
+    $(document).ready(function () {
+        var table = $('#paginated').DataTable();
+
+        $('#paginated tbody').on('click', 'tr', function () {
+            var data = table.row(this).data();
+            alert('You clicked on ' + data[0] + '\'s row');
+        });
+    });
+</script>
+
+<h2>Welcome</h2>
+
+@model TestMvcApplication.Models.RootObject
+
+<table border="1" class="paginated">
+        <thead>
+            <tr>        
+                <td><b />Client</td>
+                <td><b />Job Number</td>
+                <td><b />Job Name</td>
+                <td><b />Due</td>
+                <td><b />Status</td>
+            </tr>
+        </thead>
+    
+    <tbody>
+    @foreach (var jobs in Model.jobs)
+    {
+        <tr>        
+            <td>@jobs.client</td>
+            <td>@jobs.jobnumber</td>
+            <td>@jobs.jobname</td>
+            <td>@jobs.due</td>
+            <td>@jobs.status</td>
+        </tr>
+    }
+    </tbody>
+</table>
