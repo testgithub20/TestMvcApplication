@@ -12,17 +12,6 @@
         @Styles.Render("~/Content/css")
         @Scripts.Render("~/bundles/modernizr")
         
-<script>
-    $(document).ready(function () {
-        var table = $('#paginated').DataTable();
-
-        $('#paginated tbody').on('click', 'tr', function () {
-            var data = table.row(this).data();
-            alert('You clicked on ' + data[0] + '\'s row');
-        });
-    });
-</script>
-
     </head>
     <body>
         <header>
@@ -58,6 +47,6 @@
             </div>
         </footer>
 
-        @RenderSection("scripts", required: false)
+        @RenderSection("scripts", required: true)
     </body>
 </html>

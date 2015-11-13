@@ -2,22 +2,20 @@
     ViewBag.Title = "Welcome";    
 }        
 
-<script>
-    $(document).ready(function () {
-        var table = $('#paginated').DataTable();
-
-        $('#paginated tbody').on('click', 'tr', function () {
-            var data = table.row(this).data();
-            alert('You clicked on ' + data[0] + '\'s row');
+@section Scripts{
+ 
+    <script>
+        $(document).ready(function () {
+            $('#paginated').DataTable();
         });
-    });
-</script>
+    </script>
 
+}
 <h2>Welcome</h2>
 
 @model TestMvcApplication.Models.RootObject
 
-<table border="1" class="paginated">
+<table border="1" id="paginated">
         <thead>
             <tr>        
                 <td><b />Client</td>
